@@ -34,27 +34,33 @@ public class Customer {
         while (rentalEnumeration.hasMoreElements()) {
             double thisAmout = 0;
             Rental rental = rentalEnumeration.nextElement();
-            switch (rental.getMovie().getPriceCode()) {
-                case Movie.REGULAR:
-                    thisAmout += 2.0;
-                    if (rental.getDayRented() > 2) {
-                        thisAmout += (rental.getDayRented() - 2) * 1.5;
-                    }
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmout += rental.getDayRented() * 3;
-                    break;
-                case Movie.CHILDRENS:
-                    thisAmout += 1.5;
-                    if (rental.getDayRented() > 3) {
-                        thisAmout += (rental.getDayRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            int priceCode = rental.getMovie().getPriceCode();
+            if (priceCode != 0) {
+                switch (priceCode) {
+                    case Movie.REGULAR:
+                        thisAmout += 2.0;
+                        if (rental.getDayRented() > 2) {
+                            thisAmout += (rental.getDayRented() - 2) * 1.5;
+                        }
+                        break;
+                    case Movie.NEW_RELEASE:
+                        thisAmout += rental.getDayRented() * 3;
+                        break;
+                    case Movie.CHILDRENS:
+                        thisAmout += 1.5;
+                        if (rental.getDayRented() > 3) {
+                            thisAmout += (rental.getDayRented() - 3) * 1.5;
+                        }
+                        break;
+                }
 
-            frequentRenterPoints++;
-            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDayRented() > 1) {
                 frequentRenterPoints++;
+                if (priceCode == Movie.NEW_RELEASE && rental.getDayRented() > 1) {
+                    frequentRenterPoints++;
+                }
+            } else {
+                thisAmout += rental.getRentalAmount();
+                frequentRenterPoints += rental.getPoints();
             }
 
             result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmout) + "\n";
