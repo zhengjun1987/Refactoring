@@ -8,7 +8,12 @@ package chapter01firstcase;
  */
 public enum MovieType {
     REGULAR(2, 2, 1.5),
-    NEW_RELEASE(0, 0, 3),
+    NEW_RELEASE(0, 0, 3) {
+        @Override
+        int getPoints(int rentalDays) {
+            return rentalDays > 1 ? 2 : 1;
+        }
+    },
     CHILDREN(1.5, 3, 1.5);
     private double startPrice;
     private int exemptDuration;
@@ -29,10 +34,6 @@ public enum MovieType {
     }
 
     int getPoints(int rentalDays) {
-        int i = 1;
-        if (this == NEW_RELEASE && rentalDays > 1) {
-            i++;
-        }
-        return i;
+        return 1;
     }
 }

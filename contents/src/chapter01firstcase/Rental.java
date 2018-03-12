@@ -24,10 +24,44 @@ public class Rental {
     }
 
     public double getRentalAmount() {
-        return movie.getRentalAmount(dayRented);
+        int priceCode = movie.getPriceCode();
+        double thisAmout = 0;
+        if (priceCode == 0) {
+            return movie.getRentalAmount(dayRented);
+        } else {
+
+            switch (priceCode) {
+                case Movie.REGULAR:
+                    thisAmout += 2.0;
+                    if (getDayRented() > 2) {
+                        thisAmout += (getDayRented() - 2) * 1.5;
+                    }
+                    break;
+                case Movie.NEW_RELEASE:
+                    thisAmout += getDayRented() * 3;
+                    break;
+                case Movie.CHILDRENS:
+                    thisAmout += 1.5;
+                    if (getDayRented() > 3) {
+                        thisAmout += (getDayRented() - 3) * 1.5;
+                    }
+                    break;
+            }
+        }
+        return thisAmout;
     }
 
     public int getPoints() {
-        return movie.getPoints(dayRented);
+        int frequentRenterPoints=0;
+        int priceCode = getMovie().getPriceCode();
+        if (priceCode==0) {
+            return movie.getPoints(dayRented);
+        }else {
+            frequentRenterPoints++;
+            if (priceCode == Movie.NEW_RELEASE && getDayRented() > 1) {
+                frequentRenterPoints++;
+            }
+        }
+        return frequentRenterPoints;
     }
 }
