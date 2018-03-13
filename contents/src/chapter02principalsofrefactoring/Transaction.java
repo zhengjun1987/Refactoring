@@ -12,17 +12,17 @@ public class Transaction {
     private String orderAmount,cardId,cardName,cardNo,orderNumber,merNo,tn,orderDesc,orderDate;
     private boolean isCardSelected,showResultPage;
 
-    Transaction(int pCardType, String pOrderAmount, String pCardId, String pCardName, String pCardNo, String pOrderNumber, String pMerNo, String pTn, String pOrderDesc, String pOrderDate, boolean pIsCardSelected, boolean pShowResultPage) {
-        cardType = pCardType;
-        orderAmount = pOrderAmount;
-        cardId = pCardId;
-        cardName = pCardName;
-        cardNo = pCardNo;
-        orderNumber = pOrderNumber;
+    public Transaction(CardEntity cardEntity, String pMerNo, String pTn, OrderInfo orderInfo, boolean pIsCardSelected, boolean pShowResultPage) {
+        cardType = cardEntity.getCardType();
+        orderAmount = orderInfo.getOrderAmount();
+        cardId = cardEntity.getCardId();
+        cardName = cardEntity.getCardName();
+        cardNo = cardEntity.getCardNo();
+        orderNumber = orderInfo.getOrderNumber();
         merNo = pMerNo;
         tn = pTn;
-        orderDesc = pOrderDesc;
-        orderDate = pOrderDate;
+        orderDesc = orderInfo.getOrderDesc();
+        orderDate = orderInfo.getOrderDate();
         isCardSelected = pIsCardSelected;
         showResultPage = pShowResultPage;
     }
@@ -66,13 +66,11 @@ public class Transaction {
 
 
     public static void main(String[] args) {
-        Transaction transaction = new Transaction(0, "201803121710583669", "6225768722574669", "招商银行信用卡", "0149", "201803121710583669", "6", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38", false, true);
+        Transaction transaction = new Transaction(new CardEntity(0, "6225768722574669", "招商银行信用卡", "0149"), "6", "201803121710583669", new OrderInfo("5000", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38"), false, true);
         long start = System.nanoTime();
-        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());
-        long end1 = System.nanoTime();
-        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());
-        long end2 = System.nanoTime();
-        System.out.println(MyUtils.getCurrentTime() + "(end1 - start) = " + (end1 - start));
-        System.out.println(MyUtils.getCurrentTime() + "(end2 - end1) = " + (end2 - end1));
+        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());   //29480015
+//        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());//24769620
+        long end = System.nanoTime();
+        System.out.println(MyUtils.getCurrentTime() + "(end - start) = " + (end - start));
     }
 }
