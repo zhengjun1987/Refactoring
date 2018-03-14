@@ -38,14 +38,14 @@ public class ExecutionDurationTimerTest {
      */
     @Test
     public void testExecute() throws Exception {
-        long vExecute = mDurationTimer.execute(new ExecutionTimerInterface() {
+        long vExecute = mDurationTimer.execute(100, new ExecutionTimerInterface() {
             @Override
             public void execute() {
                 mTransaction.toString();
             }
         });
 
-        long vExecute1 = mDurationTimer.execute(new ExecutionTimerInterface() {
+        long vExecute1 = mDurationTimer.execute(100, new ExecutionTimerInterface() {
             @Override
             public void execute() {
                 mTransaction.toString0();

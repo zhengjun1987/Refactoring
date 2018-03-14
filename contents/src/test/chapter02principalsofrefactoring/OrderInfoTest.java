@@ -36,12 +36,8 @@ public class OrderInfoTest {
      */
     @Test
     public void testToStringBuilder() throws Exception {
-        long sum = 0;
-        for (int i = 0; i < REPEAT_TIMES; i++) {
-            long vExecute = mExecutionDurationTimer.execute(mOrderInfo::toStringBuilder);
-            sum += vExecute;
-        }
-        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (sum / REPEAT_TIMES));
+        long vExecute = mExecutionDurationTimer.execute(REPEAT_TIMES, mOrderInfo::toStringBuilder);
+        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (vExecute / REPEAT_TIMES));
     }
 
     /**
@@ -50,12 +46,8 @@ public class OrderInfoTest {
      */
     @Test
     public void testToStringPlus() throws Exception {
-        long sum = 0;
-        for (int i = 0; i < REPEAT_TIMES; i++) {
-            long vExecute = mExecutionDurationTimer.execute(() -> mOrderInfo.toStringPlus());
-            sum += vExecute;
-        }
-        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (sum / REPEAT_TIMES));
+        long vExecute = mExecutionDurationTimer.execute(REPEAT_TIMES, () -> mOrderInfo.toStringPlus());
+        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (vExecute / REPEAT_TIMES));
     }
 
     /**
@@ -64,11 +56,7 @@ public class OrderInfoTest {
      */
     @Test
     public void testToStringBuffer() throws Exception {
-        long sum = 0;
-        for (int i = 0; i < REPEAT_TIMES; i++) {
-            long vExecute = mExecutionDurationTimer.execute(mOrderInfo::toStringBuffer);
-            sum += vExecute;
-        }
-        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (sum / REPEAT_TIMES));
+        long vExecute = mExecutionDurationTimer.execute(REPEAT_TIMES, mOrderInfo::toStringBuffer);
+        System.out.println(MyUtils.getCurrentTime() + "(sum / REPEAT_TIMES) = " + (vExecute / REPEAT_TIMES));
     }
 }

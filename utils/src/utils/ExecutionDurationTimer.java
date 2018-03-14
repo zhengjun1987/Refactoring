@@ -6,9 +6,11 @@ package utils;
  * Date: 2018/3/14 14:20
  */
 public class ExecutionDurationTimer {
-    public long execute(ExecutionTimerInterface pTimerInterface){
+    public long execute(int times, ExecutionTimerInterface pTimerInterface){
         long start = System.nanoTime();
-        pTimerInterface.execute();
+        for (int i = 0; i < times; i++) {
+            pTimerInterface.execute();
+        }
         long end = System.nanoTime();
         return end - start;
     }
