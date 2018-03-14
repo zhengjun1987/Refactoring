@@ -10,8 +10,8 @@ import java.util.Vector;
  * Project:Refactoring
  */
 public class Customer {
-    private String name;
-    private Vector<Rental> rentalVector = new Vector<>();
+    protected String name;
+    protected Vector<Rental> rentalVector = new Vector<>();
 
     public Customer(String name) {
         this.name = name;

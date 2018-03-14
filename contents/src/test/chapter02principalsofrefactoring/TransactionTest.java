@@ -1,6 +1,6 @@
 package test.chapter02principalsofrefactoring;
 
-import chapter01firstcase.MyUtils;
+import utils.MyUtils;
 import chapter02principalsofrefactoring.CardEntity;
 import chapter02principalsofrefactoring.OrderInfo;
 import chapter02principalsofrefactoring.Transaction;
@@ -17,9 +17,12 @@ import org.junit.After;
  */
 public class TransactionTest {
 
+    private Transaction mTransaction;
+
     @Before
     public void before() throws Exception {
         System.out.println("TransactionTest.before");
+        mTransaction = new Transaction(new CardEntity(0, "6225768722574669", "招商银行信用卡", "0149"), "6", "201803121710583669", new OrderInfo("5000", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38"), false, true);
     }
 
     @After
@@ -29,12 +32,12 @@ public class TransactionTest {
 
     /**
      * Method: toString()
+     * 27926160
      */
     @Test
     public void testToString() throws Exception {
-        Transaction transaction = new Transaction(new CardEntity(0, "6225768722574669", "招商银行信用卡", "0149"), "6", "201803121710583669", new OrderInfo("5000", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38"), false, true);
         long start = System.nanoTime();
-        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());   //29480015
+        System.out.println(MyUtils.getCurrentTime() + "transaction = " + mTransaction.toString());   //29480015
 //        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());//24769620
         long end = System.nanoTime();
         System.out.println(MyUtils.getCurrentTime() + "(end - start) = " + (end - start));
@@ -42,13 +45,13 @@ public class TransactionTest {
 
     /**
      * Method: toString0()
+     * 26724380
      */
     @Test
     public void testToString0() throws Exception {
-        Transaction transaction = new Transaction(new CardEntity(0, "6225768722574669", "招商银行信用卡", "0149"), "6", "201803121710583669", new OrderInfo("5000", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38"), false, true);
         long start = System.nanoTime();
 //        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());   //29480015
-        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());//24769620
+        System.out.println(MyUtils.getCurrentTime() + "transaction = " + mTransaction.toString0());//24769620
         long end = System.nanoTime();
         System.out.println(MyUtils.getCurrentTime() + "(end - start) = " + (end - start));
     }
@@ -58,7 +61,6 @@ public class TransactionTest {
      */
     @Test
     public void testMain() throws Exception {
-        //TODO: Test goes here...
     }
 
 

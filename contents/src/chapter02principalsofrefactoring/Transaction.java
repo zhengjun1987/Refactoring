@@ -1,6 +1,6 @@
 package chapter02principalsofrefactoring;
 
-import chapter01firstcase.MyUtils;
+import utils.MyUtils;
 
 /**
  * Author: Zheng Jun
@@ -68,8 +68,8 @@ public class Transaction {
     public static void main(String[] args) {
         Transaction transaction = new Transaction(new CardEntity(0, "6225768722574669", "招商银行信用卡", "0149"), "6", "201803121710583669", new OrderInfo("5000", "201803121710583669", "银行开户手续费10.00元", "2018年3月12日17:17:38"), false, true);
         long start = System.nanoTime();
-        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());   //29480015
-//        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());//24769620
+//        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString());   //29480015
+        System.out.println(MyUtils.getCurrentTime() + "transaction = " + transaction.toString0());//24769620
         long end = System.nanoTime();
         System.out.println(MyUtils.getCurrentTime() + "(end - start) = " + (end - start));
     }

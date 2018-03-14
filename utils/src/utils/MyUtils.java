@@ -1,6 +1,5 @@
-package chapter01firstcase;
+package utils;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

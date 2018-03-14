@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Refactoring.iml" filepath="$PROJECT_DIR$/.idea/Refactoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/contents/contents.iml" filepath="$PROJECT_DIR$/contents/contents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
     </modules>
   </component>
 </project>

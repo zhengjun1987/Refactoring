@@ -30,7 +30,6 @@ public class CustomerTest {
      */
     @Test
     public void testAddElement() throws Exception {
-//TODO: Test goes here... 
     }
 
     /**
@@ -38,7 +37,6 @@ public class CustomerTest {
      */
     @Test
     public void testGetName() throws Exception {
-//TODO: Test goes here... 
     }
 
     /**
@@ -69,7 +67,6 @@ public class CustomerTest {
      */
     @Test
     public void testMain() throws Exception {
-//TODO: Test goes here... 
     }
 
 

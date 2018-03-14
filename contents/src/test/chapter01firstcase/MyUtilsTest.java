@@ -1,6 +1,6 @@
 package test.chapter01firstcase;
 
-import chapter01firstcase.MyUtils;
+import utils.MyUtils;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;

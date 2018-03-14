@@ -13,6 +13,35 @@ public class OrderInfo {
         mOrderDate = pOrderDate;
     }
 
+    public String toStringBuilder() {
+        final StringBuilder sb = new StringBuilder("OrderInfo{");
+        sb.append("mOrderAmount='").append(mOrderAmount).append('\'');
+        sb.append(", mOrderNumber='").append(mOrderNumber).append('\'');
+        sb.append(", mOrderDesc='").append(mOrderDesc).append('\'');
+        sb.append(", mOrderDate='").append(mOrderDate).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public String toStringPlus() {
+        return "OrderInfo{" +
+                "mOrderAmount='" + mOrderAmount + '\'' +
+                ", mOrderNumber='" + mOrderNumber + '\'' +
+                ", mOrderDesc='" + mOrderDesc + '\'' +
+                ", mOrderDate='" + mOrderDate + '\'' +
+                '}';
+    }
+
+    public String toStringBuffer() {
+        final StringBuffer sb = new StringBuffer("OrderInfo{");
+        sb.append("mOrderAmount='").append(mOrderAmount).append('\'');
+        sb.append(", mOrderNumber='").append(mOrderNumber).append('\'');
+        sb.append(", mOrderDesc='").append(mOrderDesc).append('\'');
+        sb.append(", mOrderDate='").append(mOrderDate).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
     String getOrderAmount() {
         return mOrderAmount;
     }
