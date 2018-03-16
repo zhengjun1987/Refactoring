@@ -1,8 +1,5 @@
 package utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Author: Zheng Jun
  * Mail:zhengjun1987@outlook.com
@@ -10,6 +7,6 @@ import java.util.Date;
  */
 public class MyUtils {
     public static String getCurrentTime() {
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS  ").format(new Date());
+        return DateFormatUtils.getCurrentTimeString(DateFormatEnum.LOG,System.currentTimeMillis());
     }
 }
